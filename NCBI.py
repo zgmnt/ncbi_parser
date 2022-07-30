@@ -68,6 +68,9 @@ def do_everything(type, ids, gene):
             else:
                 os.mkdir(path)
         else:
+            # we want only linear DNA
+            if record.annotations['topology'] != "linear":
+                continue
             # check for nuc folders
             path = "../../../Desktop/Tetracycline/" + gene + "/" + name + "/nucleotide"
             if os.path.exists(path):
